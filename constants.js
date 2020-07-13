@@ -8,7 +8,8 @@ module.exports = {
         BILLING_INVOICE_DETAILS_TITLE : 'Invoice Details',
         BILLING_PAYMENT_DETAILS_TITLE : 'Payment Details',
         BILLING_INVOICES_TITLE : 'Invoices',
-        BILLING_TRANSACTIONS_TITLE : 'Transactions'
+        BILLING_TRANSACTIONS_TITLE : 'Transactions',
+        SETMORE_PAGE_TITLE : 'Free Online Appointment Software for Small Business - Login '
     
     
     }

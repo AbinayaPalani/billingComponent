@@ -19,6 +19,7 @@
     "wdio-chromedriver-service": "^6.0.3"
   },
   "dependencies": {
-    "expect-webdriverio": "^1.2.0"
+    "expect-webdriverio": "^1.2.0",
+    "random-number": "0.0.9"
   }
 }

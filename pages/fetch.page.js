@@ -28,6 +28,7 @@ class FetchPage{
 
         elements.doDoubleClick(this.billingTab)
     }
+    
 
 
 }

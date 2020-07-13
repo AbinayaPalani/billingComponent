@@ -63,3 +63,5 @@ class planswapPage{
 
 
 }
+
+module.exports = new planswapPage();

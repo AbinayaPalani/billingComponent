@@ -13,7 +13,7 @@ class setmoreBilling{
                    it('Launch the setmore url', function(){
 
                      browser.url('https://staging.setmore.com/')
-
+                    
                    })
     })
 }

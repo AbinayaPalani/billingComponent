@@ -3,6 +3,8 @@ const configData = require('../../config')
 const constantsData = require('../../constants')
 //const billingTest = require('../test/fetch.test')
 const billingPage = require('../../pages/fetch.page');
+const setmoreBillingpage = require('../../pages/setmoreCheck.page')
+
 
 class LoginTest{
     
@@ -14,9 +16,7 @@ login(){
         const title = loginPage.getPageTitle()
         console.log('login page title is ',title)
        expect(title).toHaveText(constantsData.LOGIN_PAGE_TITLE,{ ignoreCase: true })
-       
-        
-
+    
     })
 
     it('verify google button', function(){
