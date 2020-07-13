@@ -14,8 +14,7 @@ fetch() {
             browser.pause(5000)
             fetchPage.doFetchOnce();
             browser.pause(12000)
-           
-            
+   
         })
 
 

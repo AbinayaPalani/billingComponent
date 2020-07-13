@@ -13,19 +13,18 @@ login(){
         browser.url('/')
         const title = loginPage.getPageTitle()
         console.log('login page title is ',title)
-
-       expect(title).toHaveValue(constantsData.LOGIN_PAGE_TITLE,{ ignoreCase: true })
+       expect(title).toHaveText(constantsData.LOGIN_PAGE_TITLE,{ ignoreCase: true })
        
         
 
     })
 
     it('verify google button', function(){
-        // const boolean_expect = loginPage.isLoginButtonExist()
-        // console.log('Testing verify google button '+boolean_expect);
+        const boolean_expect = loginPage.isLoginButtonExist()
+        console.log('Testing verify google button '+boolean_expect);
 
-        // //expect(loginPage.isLoginButtonExist()).toExist()
-       // assert.equal(true, loginPage.isLoginButtonExist(), 'Google Button is not present')
+        expect(loginPage.isLoginButtonExist()).toExist()
+       //assert.equal(true, loginPage.isLoginButtonExist(), 'Google Button is not present')
     })
 
     it('verify Login page in cwa', function(){
