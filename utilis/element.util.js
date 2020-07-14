@@ -31,7 +31,7 @@ class ElementUtil{
     
                 return (browser.getTitle() === pageTitle)
     
-            }), 10000, 'title is not displayed even after given time intervals'
+            }), 5000, 'title is not displayed even after given time intervals'
             return browser.getTitle()
         }
     

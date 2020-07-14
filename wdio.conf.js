@@ -127,9 +127,23 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
 
 
+    // reporters: [['allure', {
+    //     outputDir: 'allure-results',
+    //     disableWebdriverStepsReporting: true,
+    //     disableWebdriverScreenshotsReporting: true,
+    // }],['spec']],
+
+    reporters: ['allure', 'spec'],
+    reporterOptions: {
+        allure: {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: false,
+            disableWebdriverScreenshotsReporting: false,
+            useCucumberStepReporter: false
+        }
+    },
     
     //
     // Options to be passed to Mocha.
@@ -263,6 +277,26 @@ exports.config = {
      */
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
+    onComplete: function() {
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                5000)
+
+            generation.on('exit', function(exitCode) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
@@ -275,4 +309,10 @@ exports.config = {
     beforeSession () { // before hook works as well
         require('expect-webdriverio').setOptions({ wait: 5000 })
     },
+
+    afterStep: function (test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+          browser.takeScreenshot();
+        }
+      }
 }
