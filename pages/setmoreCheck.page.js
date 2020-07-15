@@ -12,6 +12,7 @@ class setmoreCheckBilling{
     get setmoreLogin(){ return $('a#login-now') }
     get settingTab() { return $('li#settings_new') }
     get accountBillingTab() { return $('ul.nav.nav-tab.nav-stacked li:nth-child(1) a') }
+    get iframeBillingId() { return $('#jbillingiframe') }
     get iframeBillingTab() { return $('ul.nav.nav-pills.nav-stacked.side-list li:nth-child(3) a') }
     get setmoreSignup() { return $('a#signupbutton') }
     get nameForSignup() { return $('input#name-signup') }
@@ -39,6 +40,24 @@ class setmoreCheckBilling{
     get cardNumber() { return $('span#live-card-number-hosted')}
     get backArrowOnPaymentPage() { return $('a#back-arrow i.setmore-icon-arrow-left')}
     
+
+    setmoreLoginEmailId(loginName){
+
+        elements.doSetValue(this.setmoreEmailId, loginName)
+    }
+
+    setmoreLoginPassword(password){
+
+        elements.doSetValue(this.setmorePassword, password)
+    }
+
+    setmoreLogInToAccount(){
+
+        elements.doClick(this.setmoreLogin);
+    }
+
+    
+
 
     setmoreSignupClick(){
 
@@ -117,6 +136,11 @@ class setmoreCheckBilling{
     clickIframeBillingTab(){
 
         elements.doClick(this.iframeBillingTab)
+    }
+
+    navigateToBillingPageForIframe(){
+
+        elements.doIsDisplayed(this.iframeBillingId)
     }
 
 

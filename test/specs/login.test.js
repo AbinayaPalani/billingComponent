@@ -4,7 +4,11 @@ const constantsData = require('../../constants')
 //const billingTest = require('../test/fetch.test')
 const billingPage = require('../../pages/fetch.page');
 const setmoreBillingpage = require('../../pages/setmoreCheck.page')
-
+var chai = require('chai');
+var expect = chai.expect;
+var rmdir = require('rmdir');
+rmdir('./allure-results', function (err, dirs, files) {
+});
 
 class LoginTest{
     
@@ -15,7 +19,9 @@ login(){
         browser.url('/')
         const title = loginPage.getPageTitle()
         console.log('login page title is ',title)
-       expect(title).toHaveText(constantsData.LOGIN_PAGE_TITLE,{ ignoreCase: true })
+        expect(title).to.equal(constantsData.LOGIN_PAGE_TITLE);
+        
+       //expect(title).toHaveText(constantsData.LOGIN_PAGE_TITLE,{ ignoreCase: true })
     
     })
 
@@ -23,7 +29,11 @@ login(){
         const boolean_expect = loginPage.isLoginButtonExist()
         console.log('Testing verify google button '+boolean_expect);
 
-        expect(loginPage.isLoginButtonExist()).toExist()
+        expect(loginPage.isLoginButtonExist()).to.be.true;
+
+
+        
+        //expect(loginPage.googleButton).
        //assert.equal(true, loginPage.isLoginButtonExist(), 'Google Button is not present')
     })
 

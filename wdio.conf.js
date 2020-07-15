@@ -1,4 +1,9 @@
+
+
+
 exports.config = {
+
+   
     //
     // ====================
     // Runner Configuration
@@ -65,7 +70,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -91,7 +96,7 @@ exports.config = {
     // gets prepended directly.
     //baseUrl: 'http://localhost',
 
-    baseUrl: 'https://staging.access.answerconnect.com',
+    baseUrl: 'https://jucv2-dot-staging-cochii-hrd.appspot.com',
     
     //
     // Default timeout for all waitFor* commands.
@@ -278,6 +283,7 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     onComplete: function() {
+        //const allure = require('@wdio/allure-reporter')
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])
         return new Promise((resolve, reject) => {
@@ -314,5 +320,10 @@ exports.config = {
         if (error) {
           browser.takeScreenshot();
         }
-      }
+      },
+      afterTest: (test, context, { error, result, duration, passed, retries }) => {
+        console.log(`Finished test "${test.parent} - ${test.title}"`)
+    }
+
+
 }
