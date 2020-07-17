@@ -24,7 +24,8 @@ class SetmoreSignUp{
                     browser.url('https://jucv2-dot-staging-cochii-hrd.appspot.com/logout.do')
                     const title = loginPage.getPageTitle()
                     console.log('login page title is ',title)
-                    expect(title).toHaveText(constantsData.SETMORE_PAGE_TITLE,{ ignoreCase: true })                   
+                    expect(title).to.equal(constantsData.SETMORE_PAGE_TITLE);       
+                    //expect(title).toHaveText(constantsData.SETMORE_PAGE_TITLE,{ ignoreCase: true })                   
             })
 
             it('Click the signup pages', function(){

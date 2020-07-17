@@ -29,17 +29,32 @@ class setmoreCheckBilling{
     get serviceContd() { return $('button#setup-service-continue')}
     get pickLivBooking() { return $('div.card.row.product-card a.button.button-pink')}
     get activatePinkButton() { return $('a#btn-activate-lb') }
-    get iframeBTHostedFieldCardNum() { return $('iframe#braintree-hosted-field-number')}
-    get CCNumber() {return $('input#credit-card-number')}
-    get iframeBTHostedFieldExpDate() {return $('iframe#braintree-hosted-field-expirationDate')}
-    get expDate() { return $('input#expiration')}
-    get iframeBTHostedFieldCVV() { return $('iframe#braintree-hosted-field-cvv')}
-        
-    get checkboxToAgree() { return $('ul.check-list.terms-checkbox li.selected span i')}
-    get confirmButton() { return $('button#hosted-field-confirm-button')}
-    get cardNumber() { return $('span#live-card-number-hosted')}
-    get backArrowOnPaymentPage() { return $('a#back-arrow i.setmore-icon-arrow-left')}
+    //get iframeBTHostedFieldCardNum() { return $('iframe#braintree-hosted-field-number')}
+    //get CCNumber() {return $('input#credit-card-number')}
+    //get iframeBTHostedFieldExpDate() {return $('iframe#braintree-hosted-field-expirationDate')}
+   // get expDate() { return $('input#expiration')}
+    // get iframeBTHostedFieldCVV() { return $('iframe#braintree-hosted-field-cvv')}       
+    // get checkboxToAgree() { return $('ul.check-list.terms-checkbox li.selected span i')}
+    // get confirmButton() { return $('button#hosted-field-confirm-button')}
+    // get cardNumber() { return $('span#live-card-number-hosted')}
+    // get backArrowOnPaymentPage() { return $('a#back-arrow i.setmore-icon-arrow-left')}
     
+
+    //Total due xpath or selector definition
+
+    get totalDuePayNowButton() { return $('div.pay-bill.flex-col-m button.btn-solid') }
+    get checkPaymentInstrument() { return $('div.card-brand.container-border.chosen-card.mb-3.card-focus') }
+    get newPaymentMethod() { return $('button.link.mr-a') }
+    get clickNewccOrdc() { return $('div.card.flex-col.cur-ptr.card-focus') }
+    get cardName() { return $('input#cardName') }
+    get cardNumber() { return $('div#card-number.hosted-field.form-field.form-field--md') }
+    get expireDate() { return $('div#expiry-date iframe#braintree-hosted-field-expirationDate') }
+    get cvv() { return $('div#cvv iframe#braintree-hosted-field-cvv') }
+    get zipCode() { return $('div#zip-code iframe#braintree-hosted-field-postalCode') }
+    get payButton() { return $('button.g-btn-primary') }
+    get cancelButton() { return $('button.g-btn-negative')}
+    get addCardButton() { return $('button.g-btn-primary#addCard') }
+
 
     setmoreLoginEmailId(loginName){
 
@@ -55,9 +70,6 @@ class setmoreCheckBilling{
 
         elements.doClick(this.setmoreLogin);
     }
-
-    
-
 
     setmoreSignupClick(){
 
@@ -141,6 +153,61 @@ class setmoreCheckBilling{
     navigateToBillingPageForIframe(){
 
         elements.doIsDisplayed(this.iframeBillingId)
+    }
+
+    payNowForTotalDue(){
+
+        elements.doClick(this.totalDuePayNowButton)
+    }
+
+    clickNewPayment(){
+
+        elements.doClick(this.newPaymentMethod)
+    }
+
+    enterCardName(BTcardName){
+        elements.doSetValue(this.cardName, BTcardName)
+    }
+
+    enterCardNumber(BTcardNumber){
+        elements.doSetValue(this.cardNumber, BTcardNumber)
+    }
+
+    enterExpDate(BTExpDate){
+
+        elements.doSetValue(this.expireDate, BTExpDate)
+    }
+
+    enterCvv(BTCvv){
+
+        elements.doSetValue(this.cvv, BTCvv)
+    }
+
+    enterZipCodeOnBTPage(BTzipCode){
+
+        elements.doSetValue(this.zipCode, BTzipCode)
+    }
+    selectExistingPaymentInstrument(){
+
+        elements.doClick(this.checkPaymentInstrument)
+    }
+    clickPayButton(){
+        elements.doClick(this.payButton);
+    }
+
+    cancelPayButton(){
+
+        elements.doClick(this.cancelButton)
+    }
+
+    selectCCoptions(){
+
+        elements.doClick(this.clickNewccOrdc)
+    }
+
+    clickAddButton(){
+
+        elements.doClick(this.addCardButton)
     }
 
 

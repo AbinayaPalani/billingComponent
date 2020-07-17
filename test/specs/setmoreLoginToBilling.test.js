@@ -4,9 +4,9 @@ const constantsData = require('../../constants')
 const billingPage = require('../../pages/fetch.page')
 const setmoreBillingpage = require('../../pages/setmoreCheck.page')
 
-class setmoreBillingTest{
+class setmoreLoginTest{
 
-    setmoreBillingCheck(){
+    setmoreLogin(){
 
         describe('Launch the browser and then load the setmore url', function(){
             
@@ -15,23 +15,30 @@ class setmoreBillingTest{
                      browser.url('/logout.do')
                     
                 });
+            })
 
-                it('Enter the user name', function(){
+        describe('Enter the credential to loginto setmore', function(){
 
-                    setmoreBillingpage.setmoreLoginEmailId('dgthfhjg@test.com')
-
-                });
-                it('Enter the user name', function(){
+            it('Enter the user name', function(){
+                
+                setmoreBillingpage.setmoreLoginEmailId('dgthfhjg@test.com')
+                
+            });
+            it('Enter the user name', function(){
+                                    
+                setmoreBillingpage.setmoreLoginPassword('password12345')
+                
+            });
+                
+            it('submit the credentials', function(){
+                                        
+                setmoreBillingpage.setmoreLogInToAccount()
                     
-                    setmoreBillingpage.setmoreLoginPassword('password12345')
-
-                });
-
-                it('submit the credentials', function(){
-                        
-                        setmoreBillingpage.setmoreLogInToAccount()
-    
-                });
+            });
+        })
+        
+        describe('Go to Billing Page', function(){
+               
                  it(' click the setting tab', function(){
 
                         setmoreBillingpage.clickSettingTab();
@@ -44,15 +51,19 @@ class setmoreBillingTest{
                 });
                 it(' click billing history to view the billing component', function(){
                         
-                       setmoreBillingpage.clickIframeBillingTab();
+                       setmoreBillingpage.clickNewPayment();
 
                 });
+
+            })
+        
 
                     
 
 
-    })
+
+    
 }
 }
 
-module.exports = {setmoreBillingTest}; 
+module.exports = {setmoreLoginTest}; 
