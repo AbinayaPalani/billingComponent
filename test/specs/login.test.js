@@ -31,8 +31,6 @@ login(){
 
         expect(loginPage.isLoginButtonExist()).to.be.true;
 
-
-        
         //expect(loginPage.googleButton).
        //assert.equal(true, loginPage.isLoginButtonExist(), 'Google Button is not present')
     })

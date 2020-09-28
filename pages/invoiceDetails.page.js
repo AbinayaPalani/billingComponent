@@ -16,6 +16,7 @@ class invoiceDetailsPage{
     get CancelButton() { return $('button.g-btn-negative') }
     get RemoveBillingContact() { return $("button[data-attr='billingContact1']") }
     
+    
 
     getInvoiceTitle(){
         
@@ -59,6 +60,11 @@ class invoiceDetailsPage{
     removeBillingContactDetails(){
 
         return elements.doClick(this.RemoveBillingContact)
+    }
+
+    afterSaveCheckOnInvoiceDetails(){
+
+        return elements.doClick()
     }
 
 

@@ -51,7 +51,7 @@ class setmoreLoginTest{
                 });
                 it(' click billing history to view the billing component', function(){
                         
-                       setmoreBillingpage.clickNewPayment();
+                       setmoreBillingpage.clickIframeBillingTab();
 
                 });
 
